@@ -10,12 +10,35 @@ import UIKit
 
 class LoginView: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    override init(frame: CGRect) {
+        super.init(frame: UIScreen.main.bounds)
+        setupView()
+        self.backgroundColor = .blue
     }
-    */
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}
 
+extension LoginView {
+    private func setupView() {
+        
+    }
+    func setupLoginTextField(){
+        
+    }
+    func setupLoginPasswordTextField(){
+        
+    }
+    func setupLoginButton(){
+        
+    }
+    func setupSignUpButton(){
+        
+    }
+    func setupForgotPasswordButton(){
+        
+    }
 }
