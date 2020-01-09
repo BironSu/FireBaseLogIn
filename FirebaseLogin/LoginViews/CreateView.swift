@@ -11,13 +11,13 @@ import UIKit
 class CreateView: UIView {
 
     lazy var profileImageHolder: UIImageView = {
-        let image = UIImageView(image: UIImage(named: "imagePlaceHolder"))
+        let image = UIImageView(image: UIImage(named: "profileImage"))
         return image
     }()
     
     lazy var uploadImageButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Upload Image", for: .normal)
+        button.setTitle(" Upload Image ", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .white
         button.layer.cornerRadius = 10
@@ -91,17 +91,28 @@ extension CreateView {
         createUploadImage()
     }
     func createImageHolder(){
-        
+        addSubview(profileImageHolder)
+        profileImageHolder.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            profileImageHolder.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 50),
+            profileImageHolder.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor)
+            
+        ])
     }
     func createUploadImage(){
-        
+        addSubview(uploadImageButton)
+        uploadImageButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            uploadImageButton.topAnchor.constraint(equalTo: profileImageHolder.bottomAnchor, constant: -10),
+            uploadImageButton.trailingAnchor.constraint(equalTo: profileImageHolder.trailingAnchor, constant: 20)
+        ])
     }
     func createUserTextField(){
         addSubview(usernameTF)
         usernameTF.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             usernameTF.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor, constant: 0),
-            usernameTF.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor, constant: -100),
+            usernameTF.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor, constant: -50),
             usernameTF.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             usernameTF.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             usernameTF.heightAnchor.constraint(equalToConstant: 40)
