@@ -36,6 +36,8 @@ class LoginView: UIView {
     lazy var loginButton: UIButton = {
         let button = UIButton()
         button.setTitle("Login", for: .normal)
+        button.backgroundColor = .white
+        button.setTitleColor( .black, for: .normal)
         button.layer.cornerRadius = 10.0
         return button
     }()
@@ -44,6 +46,8 @@ class LoginView: UIView {
         let button = UIButton()
         button.setTitle("SignUp", for: .normal)
         button.layer.cornerRadius = 10.0
+        button.backgroundColor = .white
+        button.setTitleColor( .black, for: .normal)
         return button
     }()
     
@@ -81,7 +85,7 @@ extension LoginView {
         logoImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             logoImage.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor, constant: 0),
-            logoImage.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor, constant: -200),
+            logoImage.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor, constant: -150),
             logoImage.heightAnchor.constraint(equalToConstant: 100),
             logoImage.widthAnchor.constraint(equalToConstant: 200)
         ])
@@ -112,19 +116,25 @@ extension LoginView {
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             loginButton.topAnchor.constraint(equalTo: passwordTextView.bottomAnchor, constant: 20),
-            loginButton.centerXAnchor.constraint(equalTo: passwordTextView.centerXAnchor, constant: -50)
+            loginButton.centerXAnchor.constraint(equalTo: passwordTextView.centerXAnchor, constant: -50),
+            loginButton.widthAnchor.constraint(equalToConstant: 75)
         ])
     }
     func setupSignUpButton(){
         addSubview(signUpButton)
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+            signUpButton.topAnchor.constraint(equalTo: passwordTextView.bottomAnchor, constant: 20),
+            signUpButton.centerXAnchor.constraint(equalTo: passwordTextView.centerXAnchor, constant: 50),
+            signUpButton.widthAnchor.constraint(equalToConstant: 75)
         ])
     }
     func setupForgotPasswordButton(){
         addSubview(forgotPassword)
         forgotPassword.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+            forgotPassword.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20),
+            forgotPassword.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor, constant: 0)
         ])
     }
 }
