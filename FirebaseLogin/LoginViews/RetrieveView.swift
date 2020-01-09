@@ -10,7 +10,7 @@ import UIKit
 
 class RetrieveView: UIView {
 
-    lazy var logoImage: UIImageView = {
+    lazy var retrieveLogoImage: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "LogoPlaceholder"))
         return imageView
     }()
@@ -48,10 +48,25 @@ extension RetrieveView {
         setupOKButton()
     }
     private func setupLogoHolder() {
-        
+        addSubview(retrieveLogoImage)
+        retrieveLogoImage.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            retrieveLogoImage.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor, constant: 0),
+            retrieveLogoImage.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor, constant: -150),
+            retrieveLogoImage.heightAnchor.constraint(equalToConstant: 100),
+            retrieveLogoImage.widthAnchor.constraint(equalToConstant: 200)
+        ])
     }
     private func setupRetrieveTF(){
-        
+        addSubview(retrieveUserTF)
+        retrieveUserTF.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            retrieveUserTF.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor, constant: 0),
+            retrieveUserTF.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor, constant: 0),
+            retrieveUserTF.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            retrieveUserTF.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            retrieveUserTF.heightAnchor.constraint(equalToConstant: 40)
+        ])
     }
     private func setupOKButton(){
         
