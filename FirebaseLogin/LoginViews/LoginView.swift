@@ -12,33 +12,38 @@ class LoginView: UIView {
 
     lazy var logoImage: UIImageView = {
         let image = UIImageView(image: UIImage(named: "LogoPlaceholder"))
-        
         return image
     }()
+    
     lazy var loginTextView: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Username"
         textField.layer.cornerRadius = 10.0
+        textField.backgroundColor = .white
         return textField
     }()
+    
     lazy var passwordTextView: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Password"
         textField.layer.cornerRadius = 10.0
         return textField
     }()
+    
     lazy var loginButton: UIButton = {
         let button = UIButton()
         button.setTitle("Login", for: .normal)
         button.layer.cornerRadius = 10.0
         return button
     }()
+    
     lazy var signUpButton: UIButton = {
         let button = UIButton()
         button.setTitle("SignUp", for: .normal)
         button.layer.cornerRadius = 10.0
         return button
     }()
+    
     lazy var forgotPassword: UIButton = {
         let button = UIButton()
         button.setTitle("Forgot Password?", for: .normal)
@@ -72,18 +77,28 @@ extension LoginView {
         addSubview(logoImage)
         logoImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+            logoImage.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor, constant: 0),
+            logoImage.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor, constant: -200),
+            logoImage.heightAnchor.constraint(equalToConstant: 100),
+            logoImage.widthAnchor.constraint(equalToConstant: 200)
         ])
     }
     func setupLoginTextField(){
         addSubview(loginTextView)
         loginTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+            loginTextView.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor, constant: 0),
+            loginTextView.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor, constant: 100),
+            loginTextView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            loginTextView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            loginTextView.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
     func setupLoginPasswordTextField(){
         addSubview(passwordTextView)
         passwordTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+            
         ])
     }
     func setupLoginButton(){
