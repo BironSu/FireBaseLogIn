@@ -12,11 +12,12 @@ class LoginViewController: UIViewController {
 
     private let loginView = LoginView()
     private let createView = CreateView()
-    
+    private let retrieveView = RetrieveView()
     override func viewDidLoad() {
         super.viewDidLoad()
 //        view.addSubview(loginView)
-        view.addSubview(createView)
+//        view.addSubview(createView)
+        view.addSubview(retrieveView)
     }
     
 
