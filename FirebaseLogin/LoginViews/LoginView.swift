@@ -17,6 +17,7 @@ class LoginView: UIView {
     
     lazy var loginTextView: UITextField = {
         let textField = UITextField()
+        textField.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 10)
         textField.placeholder = "Username"
         textField.layer.cornerRadius = 10.0
         textField.backgroundColor = .white
@@ -25,8 +26,10 @@ class LoginView: UIView {
     
     lazy var passwordTextView: UITextField = {
         let textField = UITextField()
+        textField.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 10)
         textField.placeholder = "Password"
         textField.layer.cornerRadius = 10.0
+        textField.backgroundColor = .white
         return textField
     }()
     
@@ -98,13 +101,18 @@ extension LoginView {
         addSubview(passwordTextView)
         passwordTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            
+            passwordTextView.topAnchor.constraint(equalTo: loginTextView.bottomAnchor, constant: 10),
+            passwordTextView.leadingAnchor.constraint(equalTo: loginTextView.leadingAnchor),
+            passwordTextView.trailingAnchor.constraint(equalTo: loginTextView.trailingAnchor),
+            passwordTextView.heightAnchor.constraint(equalTo: loginTextView.heightAnchor)
         ])
     }
     func setupLoginButton(){
         addSubview(loginButton)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+            loginButton.topAnchor.constraint(equalTo: passwordTextView.bottomAnchor, constant: 20),
+            loginButton.centerXAnchor.constraint(equalTo: passwordTextView.centerXAnchor, constant: -50)
         ])
     }
     func setupSignUpButton(){
