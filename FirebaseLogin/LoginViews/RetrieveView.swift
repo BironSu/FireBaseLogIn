@@ -69,6 +69,11 @@ extension RetrieveView {
         ])
     }
     private func setupOKButton(){
-        
+        addSubview(retrieveButton)
+        retrieveButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            retrieveButton.topAnchor.constraint(equalTo: retrieveUserTF.bottomAnchor, constant: 30),
+            retrieveButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor, constant: 0)
+        ])
     }
 }
