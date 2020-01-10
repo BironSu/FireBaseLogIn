@@ -17,6 +17,8 @@
 		934C15FD23C6B93400C58367 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934C15FC23C6B93400C58367 /* LoginView.swift */; };
 		934C15FF23C6B93D00C58367 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934C15FE23C6B93D00C58367 /* CreateView.swift */; };
 		934C160123C6B95A00C58367 /* RetrieveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934C160023C6B95A00C58367 /* RetrieveView.swift */; };
+		934C160323C91AAF00C58367 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934C160223C91AAE00C58367 /* HomePageView.swift */; };
+		934C160723C91AFB00C58367 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934C160623C91AFB00C58367 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		934C15FC23C6B93400C58367 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		934C15FE23C6B93D00C58367 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		934C160023C6B95A00C58367 /* RetrieveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrieveView.swift; sourceTree = "<group>"; };
+		934C160223C91AAE00C58367 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomePageView.swift; path = FirebaseLogin/Views/HomePageView.swift; sourceTree = SOURCE_ROOT; };
+		934C160623C91AFB00C58367 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +70,9 @@
 			children = (
 				934C15E123C6B8BC00C58367 /* AppDelegate.swift */,
 				934C15E323C6B8BC00C58367 /* SceneDelegate.swift */,
-				934C15FB23C6B92500C58367 /* LoginViews */,
-				934C15FA23C6B91500C58367 /* LoginViewControllers */,
+				934C160523C91ADC00C58367 /* LoginSetup */,
+				934C160423C91AC400C58367 /* Views */,
+				934C160823C91B0400C58367 /* ViewControllers */,
 				934C15E723C6B8BC00C58367 /* Main.storyboard */,
 				934C15ED23C6B8BE00C58367 /* Assets.xcassets */,
 				934C15EF23C6B8BE00C58367 /* LaunchScreen.storyboard */,
@@ -93,6 +98,31 @@
 				934C160023C6B95A00C58367 /* RetrieveView.swift */,
 			);
 			path = LoginViews;
+			sourceTree = "<group>";
+		};
+		934C160423C91AC400C58367 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				934C160223C91AAE00C58367 /* HomePageView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		934C160523C91ADC00C58367 /* LoginSetup */ = {
+			isa = PBXGroup;
+			children = (
+				934C15FB23C6B92500C58367 /* LoginViews */,
+				934C15FA23C6B91500C58367 /* LoginViewControllers */,
+			);
+			path = LoginSetup;
+			sourceTree = "<group>";
+		};
+		934C160823C91B0400C58367 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				934C160623C91AFB00C58367 /* HomeViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,7 +201,9 @@
 				934C15E223C6B8BC00C58367 /* AppDelegate.swift in Sources */,
 				934C15FD23C6B93400C58367 /* LoginView.swift in Sources */,
 				934C160123C6B95A00C58367 /* RetrieveView.swift in Sources */,
+				934C160723C91AFB00C58367 /* HomeViewController.swift in Sources */,
 				934C15FF23C6B93D00C58367 /* CreateView.swift in Sources */,
+				934C160323C91AAF00C58367 /* HomePageView.swift in Sources */,
 				934C15E423C6B8BC00C58367 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

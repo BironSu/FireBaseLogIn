@@ -1,14 +1,14 @@
 //
-//  RetrieveView.swift
+//  HomePageView.swift
 //  FirebaseLogin
 //
-//  Created by Biron Su on 1/8/20.
+//  Created by Biron Su on 1/10/20.
 //  Copyright © 2020 Pursuit. All rights reserved.
 //
 
 import UIKit
 
-class RetrieveView: UIView {
+class HomePageView: UIView {
 
     /*
     // Only override draw() if you perform custom drawing.

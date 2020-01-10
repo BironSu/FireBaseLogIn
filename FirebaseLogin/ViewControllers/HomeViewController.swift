@@ -1,14 +1,14 @@
 //
-//  LoginViewController.swift
+//  HomeViewController.swift
 //  FirebaseLogin
 //
-//  Created by Biron Su on 1/8/20.
+//  Created by Biron Su on 1/10/20.
 //  Copyright © 2020 Pursuit. All rights reserved.
 //
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
