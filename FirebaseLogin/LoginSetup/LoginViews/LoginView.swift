@@ -24,7 +24,7 @@ class LoginView: UIView {
         return textField
     }()
     
-    lazy var passwordTextView: UITextField = {
+    lazy var passwordTF: UITextField = {
         let textField = UITextField()
         textField.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 10)
         textField.placeholder = "Password"
@@ -102,21 +102,21 @@ extension LoginView {
         ])
     }
     func setupPasswordTF(){
-        addSubview(passwordTextView)
-        passwordTextView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(passwordTF)
+        passwordTF.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            passwordTextView.topAnchor.constraint(equalTo: loginTF.bottomAnchor, constant: 10),
-            passwordTextView.leadingAnchor.constraint(equalTo: loginTF.leadingAnchor),
-            passwordTextView.trailingAnchor.constraint(equalTo: loginTF.trailingAnchor),
-            passwordTextView.heightAnchor.constraint(equalTo: loginTF.heightAnchor)
+            passwordTF.topAnchor.constraint(equalTo: loginTF.bottomAnchor, constant: 10),
+            passwordTF.leadingAnchor.constraint(equalTo: loginTF.leadingAnchor),
+            passwordTF.trailingAnchor.constraint(equalTo: loginTF.trailingAnchor),
+            passwordTF.heightAnchor.constraint(equalTo: loginTF.heightAnchor)
         ])
     }
     func setupLoginButton(){
         addSubview(loginButton)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            loginButton.topAnchor.constraint(equalTo: passwordTextView.bottomAnchor, constant: 20),
-            loginButton.centerXAnchor.constraint(equalTo: passwordTextView.centerXAnchor, constant: -50),
+            loginButton.topAnchor.constraint(equalTo: passwordTF.bottomAnchor, constant: 20),
+            loginButton.centerXAnchor.constraint(equalTo: passwordTF.centerXAnchor, constant: -50),
 //            loginButton.widthAnchor.constraint(equalToConstant: 75)
         ])
     }
@@ -124,8 +124,8 @@ extension LoginView {
         addSubview(signUpButton)
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            signUpButton.topAnchor.constraint(equalTo: passwordTextView.bottomAnchor, constant: 20),
-            signUpButton.centerXAnchor.constraint(equalTo: passwordTextView.centerXAnchor, constant: 50),
+            signUpButton.topAnchor.constraint(equalTo: passwordTF.bottomAnchor, constant: 20),
+            signUpButton.centerXAnchor.constraint(equalTo: passwordTF.centerXAnchor, constant: 50),
 //            signUpButton.widthAnchor.constraint(equalToConstant: 75)
         ])
     }

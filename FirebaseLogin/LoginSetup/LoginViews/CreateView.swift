@@ -67,6 +67,14 @@ class CreateView: UIView {
         button.layer.cornerRadius = 10
         return button
     }()
+    lazy var cancelButton: UIButton = {
+        let button = UIButton()
+        button.setTitle(" Cancel ", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 10
+        return button
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
@@ -89,6 +97,7 @@ extension CreateView {
         createAccountButton()
         createImageHolder()
         createUploadImage()
+        cancelCreateButton()
     }
     func createImageHolder(){
         addSubview(profileImageHolder)
@@ -154,6 +163,14 @@ extension CreateView {
         NSLayoutConstraint.activate([
             createButton.topAnchor.constraint(equalTo: emailTF.bottomAnchor, constant: 20),
             createButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor, constant: 0)
+        ])
+    }
+    func cancelCreateButton(){
+        addSubview(cancelButton)
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            cancelButton.topAnchor.constraint(equalTo: createButton.bottomAnchor, constant: 20),
+            cancelButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor, constant: 0)
         ])
     }
 }
