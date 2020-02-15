@@ -10,9 +10,11 @@ import UIKit
 
 class CreateView: UIView {
 
-    lazy var profileImageHolder: UIImageView = {
-        let image = UIImageView(image: UIImage(named: "profileImage"))
-        return image
+    lazy var profileImageHolder: UIButton = {
+        let button = UIButton()
+        button.isUserInteractionEnabled = false
+        button.setImage(UIImage.init(named: "profileImage"),for: .normal)        
+        return button
     }()
     
     lazy var uploadImageButton: UIButton = {
@@ -99,16 +101,18 @@ extension CreateView {
         createUploadImage()
         cancelCreateButton()
     }
-    func createImageHolder(){
+    private func createImageHolder(){
         addSubview(profileImageHolder)
         profileImageHolder.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+            profileImageHolder.widthAnchor.constraint(equalToConstant: 225),
+            profileImageHolder.heightAnchor.constraint(equalToConstant: 225),
             profileImageHolder.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 50),
             profileImageHolder.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor)
             
         ])
     }
-    func createUploadImage(){
+    private func createUploadImage(){
         addSubview(uploadImageButton)
         uploadImageButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -116,7 +120,7 @@ extension CreateView {
             uploadImageButton.trailingAnchor.constraint(equalTo: profileImageHolder.trailingAnchor, constant: 20)
         ])
     }
-    func createUserTextField(){
+    private func createUserTextField(){
         addSubview(usernameTF)
         usernameTF.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -127,7 +131,7 @@ extension CreateView {
             usernameTF.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
-    func createPasswordTextField(){
+    private func createPasswordTextField(){
         addSubview(passwordTF)
         passwordTF.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -137,7 +141,7 @@ extension CreateView {
             passwordTF.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
-    func confirmPasswordTextField(){
+    private func confirmPasswordTextField(){
         addSubview(confirmTF)
         confirmTF.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -147,7 +151,7 @@ extension CreateView {
             confirmTF.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
-    func addEmailTextField(){
+    private func addEmailTextField(){
         addSubview(emailTF)
         emailTF.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -157,7 +161,7 @@ extension CreateView {
             emailTF.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
-    func createAccountButton(){
+    private func createAccountButton(){
         addSubview(createButton)
         createButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -165,7 +169,7 @@ extension CreateView {
             createButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor, constant: 0)
         ])
     }
-    func cancelCreateButton(){
+    private func cancelCreateButton(){
         addSubview(cancelButton)
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

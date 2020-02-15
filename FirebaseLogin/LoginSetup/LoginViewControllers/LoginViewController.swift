@@ -41,6 +41,7 @@ class LoginViewController: UIViewController {
     }
     
     @objc func forgotPass() {
+        present(RetrieveViewController(),animated: true)
     }
 
 }
