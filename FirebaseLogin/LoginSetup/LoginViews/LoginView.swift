@@ -117,7 +117,6 @@ extension LoginView {
         NSLayoutConstraint.activate([
             loginButton.topAnchor.constraint(equalTo: passwordTF.bottomAnchor, constant: 20),
             loginButton.centerXAnchor.constraint(equalTo: passwordTF.centerXAnchor, constant: -50),
-//            loginButton.widthAnchor.constraint(equalToConstant: 75)
         ])
     }
     func setupSignUpButton(){
@@ -126,7 +125,6 @@ extension LoginView {
         NSLayoutConstraint.activate([
             signUpButton.topAnchor.constraint(equalTo: passwordTF.bottomAnchor, constant: 20),
             signUpButton.centerXAnchor.constraint(equalTo: passwordTF.centerXAnchor, constant: 50),
-//            signUpButton.widthAnchor.constraint(equalToConstant: 75)
         ])
     }
     func setupForgotPassButton(){

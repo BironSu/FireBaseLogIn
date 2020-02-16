@@ -53,6 +53,7 @@ class RetrieveView: UIView {
     }
 
 }
+
 extension RetrieveView {
     private func setupView(){
         setupLogoHolder()

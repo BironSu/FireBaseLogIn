@@ -61,6 +61,7 @@ class CreateView: UIView {
         textfield.layer.cornerRadius = 10
         return textfield
     }()
+    
     lazy var createButton: UIButton = {
         let button = UIButton()
         button.setTitle(" Create Account ", for: .normal)
@@ -69,6 +70,7 @@ class CreateView: UIView {
         button.layer.cornerRadius = 10
         return button
     }()
+    
     lazy var cancelButton: UIButton = {
         let button = UIButton()
         button.setTitle(" Cancel ", for: .normal)

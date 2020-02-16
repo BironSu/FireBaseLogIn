@@ -37,7 +37,6 @@ class LoginViewController: UIViewController {
     
     @objc func signUp() {
         present(CreateViewController(), animated: true)
-        
     }
     
     @objc func forgotPass() {
