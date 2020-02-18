@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import Firebase
 
 class CreateViewController: UIViewController {
 
@@ -41,8 +43,9 @@ class CreateViewController: UIViewController {
     // - EMAIL MUST BE VALID
     // - USERNAME AND EMAIL MUST NOT ALREADY EXIST IN FIREBASE
     func validateFields() {
-        var alertMessage = "Account Created!"
-            
+        var alertTitle = "Account Created!"
+        var alertMessage = ""
+        var
         if createView.usernameTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             createView.emailTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             createView.confirmTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
@@ -50,8 +53,17 @@ class CreateViewController: UIViewController {
             alertMessage = "Please fill all empty fields"
         } else {
             alertMessage = "Account created!"
+            Auth.auth().createUser(withEmail: <#T##String#>, password: <#T##String#>) { (result, error) in
+                // Checking for Errors
+                if let error = error {
+                    alertTitle = "Error creating user."
+                    alertMessage = "\(error.localizedDescription)"
+                } else {
+
+                }
+            }
         }
-        let alertController = UIAlertController(title: alertMessage, message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default)
         
         alertController.addAction(okAction)
