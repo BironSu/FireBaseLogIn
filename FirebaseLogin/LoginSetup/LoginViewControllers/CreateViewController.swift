@@ -25,11 +25,43 @@ class CreateViewController: UIViewController {
         view.addSubview(createView)
         createView.cancelButton.addTarget(self, action: #selector(cancelButton), for: .touchUpInside)
         createView.uploadImageButton.addTarget(self, action: #selector(imageButtonPressed), for: .touchUpInside)
+        createView.createButton.addTarget(self, action: #selector(createAccount), for: .touchUpInside)
     }
 
+    // Create button, creates the account for Firebase
+    @objc func createAccount(){
+        validateFields()
+    }
+    // Validate every textfield before creating account
+    // NEED TO ADD THE FOLLOWING FOR VALIDATION (FUTURE)
+    // - MIN/MAX LENGTH OF USERNAME
+    // - MIN/MAX LENGTH OF PASSWORD
+    // - PASSWORD MUST NOT CONTAIN SPACE? MUST CONTAIN NUMBER/SPECIAL CHARACTER?
+    // - CONFIRMTF MUST == PASSWORDTF
+    // - EMAIL MUST BE VALID
+    // - USERNAME AND EMAIL MUST NOT ALREADY EXIST IN FIREBASE
+    func validateFields() {
+        var alertMessage = "Account Created!"
+            
+        if createView.usernameTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            createView.emailTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            createView.confirmTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            createView.passwordTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            alertMessage = "Please fill all empty fields"
+        } else {
+            alertMessage = "Account created!"
+        }
+        let alertController = UIAlertController(title: alertMessage, message: nil, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        
+        alertController.addAction(okAction)
+        present(alertController, animated: true)
+    }
+    // Cancel button, goes back to login view
     @objc func cancelButton() {
         dismiss(animated: true)
     }
+    // Image Picker to select images from camera or library
     @objc private func imageButtonPressed() {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let libraryAction = UIAlertAction(title: "Library", style: .default) { [unowned self] (action) in
