@@ -45,10 +45,11 @@ class CreateViewController: UIViewController {
     func validateFields() {
         var alertTitle = "Account Created!"
         var alertMessage = ""
-        if createView.usernameTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-            createView.emailTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-            createView.confirmTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-            createView.passwordTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+        let username = createView.usernameTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let email = createView.emailTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let password = createView.passwordTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let confirmPass = createView.confirmTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        if username == "" || email == "" || password == "" || confirmPass == "" {
             alertMessage = "Please fill all empty fields"
         } else {
             alertMessage = "Account created!"
