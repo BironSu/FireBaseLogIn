@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,9 @@
 		938F343023F8904C007BC13A /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938F342F23F8904C007BC13A /* CreateViewController.swift */; };
 		938F343223F893CD007BC13A /* RetrieveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938F343123F893CD007BC13A /* RetrieveViewController.swift */; };
 		938F343423F8D542007BC13A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 938F343323F8D542007BC13A /* GoogleService-Info.plist */; };
+		93BCCCB823FDD1D0003C882E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCCCB723FDD1D0003C882E /* UserModel.swift */; };
+		93BCCCBB23FDD8EC003C882E /* DBService-UserCollectionKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCCCBA23FDD8EC003C882E /* DBService-UserCollectionKey.swift */; };
+		93BCCCBD23FDD9E4003C882E /* DBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCCCBC23FDD9E4003C882E /* DBService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +48,9 @@
 		938F342F23F8904C007BC13A /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		938F343123F893CD007BC13A /* RetrieveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrieveViewController.swift; sourceTree = "<group>"; };
 		938F343323F8D542007BC13A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		93BCCCB723FDD1D0003C882E /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		93BCCCBA23FDD8EC003C882E /* DBService-UserCollectionKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBService-UserCollectionKey.swift"; sourceTree = "<group>"; };
+		93BCCCBC23FDD9E4003C882E /* DBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBService.swift; sourceTree = "<group>"; };
 		94C8961EB6933E7FE981477D /* Pods_FirebaseLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -94,6 +100,8 @@
 				934C160523C91ADC00C58367 /* LoginSetup */,
 				934C160423C91AC400C58367 /* Views */,
 				934C160823C91B0400C58367 /* ViewControllers */,
+				93BCCCB923FDD1DC003C882E /* Models */,
+				93BCCCBE23FDD9EE003C882E /* FireBaseHelpers */,
 				934C15E723C6B8BC00C58367 /* Main.storyboard */,
 				934C15ED23C6B8BE00C58367 /* Assets.xcassets */,
 				934C15EF23C6B8BE00C58367 /* LaunchScreen.storyboard */,
@@ -149,13 +157,29 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		93BCCCB923FDD1DC003C882E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				93BCCCB723FDD1D0003C882E /* UserModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		93BCCCBE23FDD9EE003C882E /* FireBaseHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				93BCCCBC23FDD9E4003C882E /* DBService.swift */,
+				93BCCCBA23FDD8EC003C882E /* DBService-UserCollectionKey.swift */,
+			);
+			path = FireBaseHelpers;
+			sourceTree = "<group>";
+		};
 		EB4C755275ACCB2ED234D2BC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				3A750DFE76305AA1503B61C4 /* Pods-FirebaseLogin.debug.xcconfig */,
 				537CC7F06B8552E01D5CC7C6 /* Pods-FirebaseLogin.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -278,6 +302,7 @@
 				938F343023F8904C007BC13A /* CreateViewController.swift in Sources */,
 				934C15F923C6B90E00C58367 /* LoginViewController.swift in Sources */,
 				938F343223F893CD007BC13A /* RetrieveViewController.swift in Sources */,
+				93BCCCBD23FDD9E4003C882E /* DBService.swift in Sources */,
 				934C15EC23C6B8BC00C58367 /* FirebaseLogin.xcdatamodeld in Sources */,
 				934C15E223C6B8BC00C58367 /* AppDelegate.swift in Sources */,
 				934C15FD23C6B93400C58367 /* LoginView.swift in Sources */,
@@ -285,6 +310,8 @@
 				934C160723C91AFB00C58367 /* HomeViewController.swift in Sources */,
 				934C15FF23C6B93D00C58367 /* CreateView.swift in Sources */,
 				934C160323C91AAF00C58367 /* HomePageView.swift in Sources */,
+				93BCCCBB23FDD8EC003C882E /* DBService-UserCollectionKey.swift in Sources */,
+				93BCCCB823FDD1D0003C882E /* UserModel.swift in Sources */,
 				934C15E423C6B8BC00C58367 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
