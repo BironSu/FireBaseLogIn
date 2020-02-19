@@ -45,7 +45,6 @@ class CreateViewController: UIViewController {
     func validateFields() {
         var alertTitle = "Account Created!"
         var alertMessage = ""
-        var
         if createView.usernameTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             createView.emailTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             createView.confirmTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
@@ -53,13 +52,25 @@ class CreateViewController: UIViewController {
             alertMessage = "Please fill all empty fields"
         } else {
             alertMessage = "Account created!"
-            Auth.auth().createUser(withEmail: <#T##String#>, password: <#T##String#>) { (result, error) in
+            
+            Auth.auth().createUser(withEmail: "", password: "") { (result, error) in
                 // Checking for Errors
                 if let error = error {
-                    alertTitle = "Error creating user."
+                    alertTitle = "Error creating user.(59)"
                     alertMessage = "\(error.localizedDescription)"
                 } else {
-
+                    let db = Firestore.firestore()
+                    db.collection("users").addDocument(data: [
+                        "username":self.createView.usernameTF.text!,
+                        "password":self.createView.confirmTF.text!,
+                        "email":self.createView.emailTF.text!,
+                        "uid":result!.user.uid
+                    ]) { (error) in
+                        if let error = error {
+                            alertTitle = "Error creating user.(70)"
+                            alertMessage = "\(error.localizedDescription)"
+                        }
+                    }
                 }
             }
         }

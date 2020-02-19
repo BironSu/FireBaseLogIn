@@ -21,12 +21,13 @@ class LoginViewController: UIViewController {
     
     @objc func login() {
         var alertMessage = "Edit Default Alert Message"
+        // CHECK USER IF IT EXIST
         if self.loginView.loginTF.text!.count <= 3 {
             alertMessage = "Invalid Username"
+            // CHECK IF PASSWORD IS THE SAME
         } else if self.loginView.passwordTF.text!.count <= 5 {
             alertMessage = "Password too short (Minimum 5 characters)"
         }
-            
         let alertController = UIAlertController(title: alertMessage, message: nil, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default)
         
