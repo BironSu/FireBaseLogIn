@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct UserModel {
+struct UserModel: Equatable, Hashable {
     let userID: String
     let displayName: String
     let email: String
@@ -28,4 +28,11 @@ struct UserModel {
         self.photoURL = photoURL
     }
     // Initializer for getting data from firebase
+    init(dict: [String: Any]) {
+        self.userID = dict[UserCollectionKeys.UserIDKey] as? String ?? ""
+        self.displayName = dict[UserCollectionKeys.DisplayNameKey] as? String ?? ""
+        self.email = dict[UserCollectionKeys.EmailKey] as? String ?? ""
+        self.joinedDate = dict[UserCollectionKeys.JoinedDateKey] as? String ?? ""
+        self.photoURL = dict[UserCollectionKeys.CoverImageKey] as? String ?? ""
+    }
 }
