@@ -9,21 +9,10 @@
 import UIKit
 
 class CreateView: UIView {
-
-    lazy var profileImageHolder: UIButton = {
-        let button = UIButton()
-        button.isUserInteractionEnabled = false
-        button.setImage(UIImage.init(named: "profileImage"),for: .normal)        
-        return button
-    }()
     
-    lazy var uploadImageButton: UIButton = {
-        let button = UIButton()
-        button.setTitle(" Upload Image ", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .white
-        button.layer.cornerRadius = 10
-        return button
+    lazy var logoImage: UIImageView = {
+        let image = UIImageView(image: UIImage(named: "LogoPlaceholder"))
+        return image
     }()
     
     lazy var usernameTF: UITextField = {
@@ -99,29 +88,21 @@ extension CreateView {
         confirmPasswordTextField()
         addEmailTextField()
         createAccountButton()
-        createImageHolder()
-        createUploadImage()
         cancelCreateButton()
+        createLogoImage()
     }
-    private func createImageHolder(){
-        addSubview(profileImageHolder)
-        profileImageHolder.translatesAutoresizingMaskIntoConstraints = false
+    
+    private func createLogoImage(){
+        addSubview(logoImage)
+        logoImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            profileImageHolder.widthAnchor.constraint(equalToConstant: 225),
-            profileImageHolder.heightAnchor.constraint(equalToConstant: 225),
-            profileImageHolder.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 50),
-            profileImageHolder.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor)
-            
+            logoImage.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor, constant: 0),
+            logoImage.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor, constant: -200),
+            logoImage.heightAnchor.constraint(equalToConstant: 100),
+            logoImage.widthAnchor.constraint(equalToConstant: 200)
         ])
     }
-    private func createUploadImage(){
-        addSubview(uploadImageButton)
-        uploadImageButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            uploadImageButton.topAnchor.constraint(equalTo: profileImageHolder.bottomAnchor, constant: -10),
-            uploadImageButton.trailingAnchor.constraint(equalTo: profileImageHolder.trailingAnchor, constant: 20)
-        ])
-    }
+    
     private func createUserTextField(){
         addSubview(usernameTF)
         usernameTF.translatesAutoresizingMaskIntoConstraints = false

@@ -14,19 +14,10 @@ class CreateViewController: UIViewController {
 
     private let createView = CreateView()
     
-    private lazy var imagePickerController: UIImagePickerController = {
-        let ip = UIImagePickerController()
-        ip.delegate = self
-        return ip
-    }()
-    private var profileImage: UIImage?
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(createView)
         createView.cancelButton.addTarget(self, action: #selector(cancelButton), for: .touchUpInside)
-        createView.uploadImageButton.addTarget(self, action: #selector(imageButtonPressed), for: .touchUpInside)
         createView.createButton.addTarget(self, action: #selector(createAccount), for: .touchUpInside)
     }
 
@@ -54,18 +45,15 @@ class CreateViewController: UIViewController {
         } else {
             alertMessage = "Account created!"
             
-            Auth.auth().createUser(withEmail: "", password: "") { (result, error) in
+            Auth.auth().createUser(withEmail: email!, password: password!) { (result, error) in
                 // Checking for Errors
                 if let error = error {
                     alertTitle = "Error creating user.(59)"
                     alertMessage = "\(error.localizedDescription)"
                 } else {
                     let db = Firestore.firestore()
-                    db.collection("users").addDocument(data: [
-                        "username":self.createView.usernameTF.text!,
-                        "password":self.createView.confirmTF.text!,
-                        "email":self.createView.emailTF.text!,
-                        "uid":result!.user.uid
+                    db.collection(UserCollectionKeys.CollectionKey).addDocument(data: [
+                        UserCollectionKeys.DisplayNameKey : self.createView.usernameTF.text!
                     ]) { (error) in
                         if let error = error {
                             alertTitle = "Error creating user.(70)"
@@ -83,44 +71,6 @@ class CreateViewController: UIViewController {
     }
     // Cancel button, goes back to login view
     @objc func cancelButton() {
-        dismiss(animated: true)
-    }
-    // Image Picker to select images from camera or library
-    @objc private func imageButtonPressed() {
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let libraryAction = UIAlertAction(title: "Library", style: .default) { [unowned self] (action) in
-            
-            self.imagePickerController.sourceType = .photoLibrary
-            self.present(self.imagePickerController, animated: true)
-        }
-        let cameraAction = UIAlertAction(title: "Camera", style: .default) { [unowned self] (action) in
-            
-            self.imagePickerController.sourceType = .camera
-            self.present(self.imagePickerController, animated: true)
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        alertController.addAction(libraryAction)
-        alertController.addAction(cameraAction)
-        alertController.addAction(cancelAction)
-        if !UIImagePickerController.isSourceTypeAvailable(.camera) {
-            cameraAction.isEnabled = false
-        }
-        present(alertController, animated: true)
-    }
-}
-
-extension CreateViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true)
-    }
-    func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
-            print("original image is nil")
-            return
-        }
-        self.createView.profileImageHolder.setImage(originalImage, for: .normal)
         dismiss(animated: true)
     }
 }

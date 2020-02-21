@@ -12,20 +12,17 @@ struct UserModel: Equatable, Hashable {
     let userID: String
     let displayName: String
     let email: String
-    let photoURL: String?
     let joinedDate: String
     
     // Initializer for saving to firebase
     init(userID: String,
          displayName: String,
          email: String,
-         joinedDate: String,
-         photoURL: String?) {
+         joinedDate: String) {
         self.userID = userID
         self.displayName = displayName
         self.email = email
         self.joinedDate = joinedDate
-        self.photoURL = photoURL
     }
     // Initializer for getting data from firebase
     init(dict: [String: Any]) {
@@ -33,6 +30,5 @@ struct UserModel: Equatable, Hashable {
         self.displayName = dict[UserCollectionKeys.DisplayNameKey] as? String ?? ""
         self.email = dict[UserCollectionKeys.EmailKey] as? String ?? ""
         self.joinedDate = dict[UserCollectionKeys.JoinedDateKey] as? String ?? ""
-        self.photoURL = dict[UserCollectionKeys.CoverImageKey] as? String ?? ""
     }
 }

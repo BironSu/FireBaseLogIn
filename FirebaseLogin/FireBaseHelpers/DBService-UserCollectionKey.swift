@@ -15,9 +15,7 @@ struct UserCollectionKeys {
     static let UserIDKey = "userID"
     static let DisplayNameKey = "displayName"
     static let EmailKey = "email"
-    static let JoinedDateKey = "joinedDate"
-    static let CoverImageKey = "photoURL"
-    
+    static let JoinedDateKey = "joinedDate"    
 }
 
 extension DBService {
@@ -29,7 +27,6 @@ extension DBService {
                 UserCollectionKeys.EmailKey: user.email,
                 UserCollectionKeys.JoinedDateKey: user.joinedDate,
                 UserCollectionKeys.DisplayNameKey: user.displayName,
-                UserCollectionKeys.CoverImageKey: user.photoURL ?? ""
             ]) { (error) in
                 if let error = error {
                     completion(error)
