@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
     private let loginView = LoginView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(loginView)
@@ -27,6 +29,8 @@ class LoginViewController: UIViewController {
             // CHECK IF PASSWORD IS THE SAME
         } else if self.loginView.passwordTF.text!.count <= 5 {
             alertMessage = "Password too short (Minimum 5 characters)"
+        } else {
+            //
         }
         let alertController = UIAlertController(title: alertMessage, message: nil, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default)
